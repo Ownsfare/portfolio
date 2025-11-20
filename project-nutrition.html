@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Based Food Image Nutrition Predictor - Shubham Jain</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .project-detail {
+            padding: 100px 0 80px;
+            min-height: 100vh;
+            background-color: var(--light-bg);
+        }
+        [data-theme="dark"] .project-detail {
+            background-color: var(--dark-bg);
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .project-header .project-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .project-header img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .project-section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        [data-theme="dark"] .project-section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+        .project-section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        .project-section h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .project-section p, .project-section li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .project-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .project-section li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .project-section li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .tech-item {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        [data-theme="dark"] .tech-item {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .back-button {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .milestone-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .milestone-timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+        .milestone {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        .milestone:before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--white);
+        }
+        [data-theme="dark"] .milestone:before {
+            border-color: var(--dark-bg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Shubham Codes</div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <div class="project-icon">🍎</div>
+                <h1>AI-Based Food Image Nutrition Predictor</h1>
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80" alt="Food and Technology">
+            </div>
+
+            <div class="project-content">
+                <a href="index.html#projects" class="back-button">← Back to Projects</a>
+
+                <div class="project-section">
+                    <h2>Objective</h2>
+                    <p>Develop an AI-powered application that automatically predicts nutritional information from food images, making nutrition tracking accessible and convenient through simple photo capture. The system should accurately identify food items and provide detailed nutritional data including calories, macronutrients, and micronutrients.</p>
+                    <p>The primary goal was to create an intuitive tool that eliminates the manual effort required for nutrition tracking, enabling users to make informed dietary choices by simply photographing their meals.</p>
+                </div>
+
+                <div class="project-section">
+                    <h2>Key Milestones</h2>
+                    <div class="milestone-timeline">
+                        <div class="milestone">
+                            <h3>Phase 1: Research & Data Collection</h3>
+                            <p>Researched existing solutions and identified gaps. Collected and curated a comprehensive dataset of food images with corresponding nutritional labels. Prepared data for training and validation.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 2: Model Selection & Architecture</h3>
+                            <p>Evaluated various deep learning architectures. Selected Inception V3 as the base model for transfer learning. Designed custom classification layers for food recognition.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 3: Model Training</h3>
+                            <p>Implemented transfer learning using pre-trained Inception V3 weights. Trained the model on custom food dataset. Fine-tuned hyperparameters for optimal performance. Achieved high accuracy in food classification.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 4: Nutrition Database Integration</h3>
+                            <p>Integrated comprehensive nutrition database (USDA Food Database). Developed mapping system between food items and nutritional values. Implemented portion size estimation algorithms.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 5: Application Development</h3>
+                            <p>Developed user-friendly mobile/web interface. Implemented image upload and processing pipeline. Created intuitive display of nutritional information. Conducted user testing and refinement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>Product Requirements Document (PRD)</h2>
+                    <h3>Functional Requirements</h3>
+                    <ul>
+                        <li>Capture or upload food images</li>
+                        <li>Identify food items in images using AI</li>
+                        <li>Estimate portion sizes</li>
+                        <li>Calculate nutritional values (calories, macros, micros)</li>
+                        <li>Display nutritional information in user-friendly format</li>
+                        <li>Support multiple food items in single image</li>
+                        <li>Save and track meal history</li>
+                        <li>Export nutrition data</li>
+                    </ul>
+
+                    <h3>Non-Functional Requirements</h3>
+                    <ul>
+                        <li>Classification accuracy: >85% for common foods</li>
+                        <li>Processing time: <5 seconds per image</li>
+                        <li>Support for 100+ food categories</li>
+                        <li>Mobile-responsive interface</li>
+                        <li>Offline capability for core features</li>
+                        <li>Data privacy and security</li>
+                        <li>Scalable architecture for growing user base</li>
+                    </ul>
+
+                    <h3>User Stories</h3>
+                    <ul>
+                        <li>As a health-conscious user, I want to track my nutrition by taking photos so that I can monitor my dietary intake easily.</li>
+                        <li>As a user, I need accurate nutritional information so that I can make informed food choices.</li>
+                        <li>As a user, I want to see my meal history so that I can track my progress over time.</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Technology Stack</h2>
+                    <div class="tech-stack-grid">
+                        <div class="tech-item">
+                            <strong>TensorFlow</strong>
+                            <p>Deep learning framework for model development</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Inception V3</strong>
+                            <p>Pre-trained CNN architecture for image classification</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Python</strong>
+                            <p>Primary programming language</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Keras</strong>
+                            <p>High-level neural networks API</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>OpenCV</strong>
+                            <p>Image processing and preprocessing</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>NumPy</strong>
+                            <p>Numerical computing library</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Pandas</strong>
+                            <p>Data manipulation and analysis</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Flask/Django</strong>
+                            <p>Web framework for application backend</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>System Architecture</h2>
+                    <h3>Model Architecture</h3>
+                    <ul>
+                        <li><strong>Base Model:</strong> Inception V3 pre-trained on ImageNet</li>
+                        <li><strong>Transfer Learning:</strong> Fine-tuned on custom food dataset</li>
+                        <li><strong>Classification Head:</strong> Custom dense layers for food category prediction</li>
+                        <li><strong>Output:</strong> Probability distribution over food classes</li>
+                    </ul>
+
+                    <h3>Application Architecture</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> Web/mobile interface for image upload and results display</li>
+                        <li><strong>Backend API:</strong> Image processing and model inference</li>
+                        <li><strong>Model Service:</strong> TensorFlow serving for predictions</li>
+                        <li><strong>Database:</strong> Nutrition database and user meal history</li>
+                        <li><strong>Image Processing:</strong> Preprocessing pipeline for model input</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Key Achievements</h2>
+                    <ul>
+                        <li>Successfully led a team of 4 developers</li>
+                        <li>Achieved >85% accuracy in food classification</li>
+                        <li>Implemented efficient transfer learning approach</li>
+                        <li>Created user-friendly interface for nutrition tracking</li>
+                        <li>Developed scalable system architecture</li>
+                        <li>Made nutrition tracking accessible through simple photo capture</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Challenges & Solutions</h2>
+                    <h3>Challenge 1: Dataset Quality</h3>
+                    <p><strong>Problem:</strong> Limited availability of labeled food images with nutritional data.</p>
+                    <p><strong>Solution:</strong> Created comprehensive dataset by combining multiple sources, implemented data augmentation techniques, and used transfer learning to leverage pre-trained models.</p>
+
+                    <h3>Challenge 2: Multi-Food Recognition</h3>
+                    <p><strong>Problem:</strong> Identifying multiple food items in a single image with varying portion sizes.</p>
+                    <p><strong>Solution:</strong> Implemented object detection for multiple food items and developed portion size estimation algorithms based on visual cues and reference objects.</p>
+
+                    <h3>Challenge 3: Model Performance</h3>
+                    <p><strong>Problem:</strong> Balancing model accuracy with inference speed for real-time use.</p>
+                    <p><strong>Solution:</strong> Optimized model architecture, implemented model quantization, and used efficient preprocessing pipelines to reduce computational requirements.</p>
+                </div>
+
+                <a href="index.html#projects" class="back-button">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Shubham Jain. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

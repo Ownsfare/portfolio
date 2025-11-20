@@ -68,27 +68,15 @@ if (contactBtn) {
     });
 }
 
-// Project Card Button Click Events
+// Project Card Button Click Events - Navigation handled by onclick in HTML
 const projectButtons = document.querySelectorAll('.project-btn');
-projectButtons.forEach((button, index) => {
+projectButtons.forEach((button) => {
     button.addEventListener('click', function() {
-        const projectCard = this.closest('.project-card');
-        const projectTitle = projectCard.querySelector('h3').textContent;
-        
         // Add click animation
         this.style.transform = 'scale(0.95)';
         setTimeout(() => {
             this.style.transform = 'scale(1)';
         }, 150);
-        
-        // Show alert (you can replace this with modal or navigation)
-        alert(`Viewing details for: ${projectTitle}\n\nThis would typically open a project detail page or modal.`);
-        
-        // Optional: Add a visual highlight effect
-        projectCard.style.border = '2px solid #6366f1';
-        setTimeout(() => {
-            projectCard.style.border = '1px solid #e2e8f0';
-        }, 1000);
     });
 });
 
@@ -123,12 +111,18 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
+// Observe all sections (but not project detail pages which should be visible immediately)
+document.querySelectorAll('section:not(.project-detail)').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
+});
+
+// Ensure project detail sections are visible
+document.querySelectorAll('section.project-detail').forEach(section => {
+    section.style.opacity = '1';
+    section.style.transform = 'translateY(0)';
 });
 
 // Add active state to navigation links on scroll
@@ -153,6 +147,47 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Set last updated date
+const lastUpdatedElement = document.getElementById('lastUpdated');
+if (lastUpdatedElement) {
+    const lastUpdated = new Date().toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    lastUpdatedElement.textContent = lastUpdated;
+}
+
+// Animate skill progress bars on scroll
+const animateProgressBars = () => {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+
+    const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBar = entry.target;
+                const width = progressBar.style.width;
+                progressBar.style.width = '0%';
+                setTimeout(() => {
+                    progressBar.style.width = width;
+                }, 100);
+                progressObserver.unobserve(progressBar);
+            }
+        });
+    }, observerOptions);
+
+    skillBars.forEach(bar => progressObserver.observe(bar));
+};
+
+// Initialize progress bar animations
+if (document.querySelector('.skill-progress')) {
+    animateProgressBars();
+}
 
 // Console welcome message
 console.log('%c👋 Welcome to Shubham Codes Portfolio!', 'color: #6366f1; font-size: 20px; font-weight: bold;');

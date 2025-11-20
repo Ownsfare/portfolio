@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Spectacles for Visually Impaired - Shubham Jain</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .project-detail {
+            padding: 100px 0 80px;
+            min-height: 100vh;
+            background-color: var(--light-bg);
+        }
+        [data-theme="dark"] .project-detail {
+            background-color: var(--dark-bg);
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .project-header .project-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .project-header img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .project-section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        [data-theme="dark"] .project-section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+        .project-section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        .project-section h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .project-section p, .project-section li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .project-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .project-section li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .project-section li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .tech-item {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        [data-theme="dark"] .tech-item {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .back-button {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .milestone-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .milestone-timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+        .milestone {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        .milestone:before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--white);
+        }
+        [data-theme="dark"] .milestone:before {
+            border-color: var(--dark-bg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Shubham Codes</div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <div class="project-icon">👓</div>
+                <h1>Smart Spectacles for Visually Impaired</h1>
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80" alt="Smart Technology">
+            </div>
+
+            <div class="project-content">
+                <a href="index.html#projects" class="back-button">← Back to Projects</a>
+
+                <div class="project-section">
+                    <h2>Objective</h2>
+                    <p>Develop a portable, affordable assistive device that enables visually impaired individuals to read printed text independently. The device should be lightweight, user-friendly, and provide real-time text-to-speech conversion to improve accessibility and independence for people with visual impairments.</p>
+                    <p>The primary goal was to create an innovative solution that bridges accessibility gaps through technology, making printed information accessible to visually challenged individuals without requiring external assistance.</p>
+                </div>
+
+                <div class="project-section">
+                    <h2>Key Milestones</h2>
+                    <div class="milestone-timeline">
+                        <div class="milestone">
+                            <h3>Phase 1: Concept & Design</h3>
+                            <p>Conceived the idea and designed the hardware form factor. Researched user needs and requirements for visually impaired individuals. Designed ergonomic spectacles frame that could house the necessary components.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 2: Hardware Integration</h3>
+                            <p>Integrated Raspberry Pi as the core processing unit. Selected and integrated camera module for image capture. Designed power management system for portable operation.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 3: OCR Implementation</h3>
+                            <p>Implemented Tesseract OCR engine for text recognition. Developed image preprocessing algorithms to enhance OCR accuracy. Optimized for various fonts, sizes, and text orientations.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 4: Text-to-Speech Integration</h3>
+                            <p>Integrated high-quality text-to-speech engine. Implemented audio output system with clear, natural-sounding voice. Added language support and voice customization options.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 5: Testing & Refinement</h3>
+                            <p>Conducted user testing with visually impaired individuals. Refined user interface and interaction methods. Optimized performance and battery life for practical use.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>Product Requirements Document (PRD)</h2>
+                    <h3>Functional Requirements</h3>
+                    <ul>
+                        <li>Capture images of printed text using onboard camera</li>
+                        <li>Process images to extract text using OCR</li>
+                        <li>Convert recognized text to speech output</li>
+                        <li>Support multiple languages</li>
+                        <li>Adjustable reading speed and voice settings</li>
+                        <li>Battery-powered portable operation</li>
+                        <li>Simple user interface with tactile controls</li>
+                        <li>Real-time processing with minimal latency</li>
+                    </ul>
+
+                    <h3>Non-Functional Requirements</h3>
+                    <ul>
+                        <li>Weight: Less than 200g for comfortable wear</li>
+                        <li>Battery life: Minimum 2 hours of continuous use</li>
+                        <li>OCR accuracy: >85% for standard printed text</li>
+                        <li>Processing time: <3 seconds per page</li>
+                        <li>Audio quality: Clear, natural-sounding speech</li>
+                        <li>Durability: Robust design for daily use</li>
+                        <li>Cost: Affordable for target users</li>
+                    </ul>
+
+                    <h3>User Stories</h3>
+                    <ul>
+                        <li>As a visually impaired user, I want to read printed documents independently so that I don't need assistance from others.</li>
+                        <li>As a user, I need clear audio output so that I can understand the content being read.</li>
+                        <li>As a user, I want simple controls so that I can operate the device easily without visual feedback.</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Technology Stack</h2>
+                    <div class="tech-stack-grid">
+                        <div class="tech-item">
+                            <strong>Raspberry Pi</strong>
+                            <p>Single-board computer for processing and control</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Python</strong>
+                            <p>Programming language for software development</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Tesseract OCR</strong>
+                            <p>Open-source OCR engine for text recognition</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Text-to-Speech (TTS)</strong>
+                            <p>Speech synthesis engine for audio output</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>OpenCV</strong>
+                            <p>Image processing library for preprocessing</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Camera Module</strong>
+                            <p>High-resolution camera for image capture</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Audio System</strong>
+                            <p>Speaker and audio amplifier for output</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Power Management</strong>
+                            <p>Battery system and power regulation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>System Architecture</h2>
+                    <h3>Hardware Components</h3>
+                    <ul>
+                        <li>Raspberry Pi 4 Model B (or similar) as main processor</li>
+                        <li>High-resolution camera module (8MP+)</li>
+                        <li>Compact speaker system with amplifier</li>
+                        <li>Rechargeable battery pack (5000mAh+)</li>
+                        <li>Tactile buttons for user control</li>
+                        <li>LED indicators for system status</li>
+                        <li>Custom 3D-printed frame housing</li>
+                    </ul>
+
+                    <h3>Software Architecture</h3>
+                    <ul>
+                        <li><strong>Image Capture Module:</strong> Camera interface and image acquisition</li>
+                        <li><strong>Image Processing Module:</strong> Preprocessing, enhancement, and optimization</li>
+                        <li><strong>OCR Module:</strong> Text extraction using Tesseract</li>
+                        <li><strong>TTS Module:</strong> Text-to-speech conversion</li>
+                        <li><strong>User Interface:</strong> Control system and feedback mechanisms</li>
+                        <li><strong>Power Management:</strong> Battery monitoring and optimization</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Key Achievements</h2>
+                    <ul>
+                        <li>Successfully created a portable, wearable assistive device</li>
+                        <li>Achieved >85% OCR accuracy for standard printed text</li>
+                        <li>Developed user-friendly interface suitable for visually impaired users</li>
+                        <li>Created affordable solution using open-source technologies</li>
+                        <li>Demonstrated practical application in real-world scenarios</li>
+                        <li>Bridged accessibility gaps through innovative technology</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Challenges & Solutions</h2>
+                    <h3>Challenge 1: OCR Accuracy</h3>
+                    <p><strong>Problem:</strong> Low accuracy in recognizing text from various fonts, sizes, and lighting conditions.</p>
+                    <p><strong>Solution:</strong> Implemented comprehensive image preprocessing including noise reduction, contrast enhancement, and perspective correction. Fine-tuned Tesseract parameters for optimal performance.</p>
+
+                    <h3>Challenge 2: Portability & Power</h3>
+                    <p><strong>Problem:</strong> Balancing processing power requirements with battery life and device weight.</p>
+                    <p><strong>Solution:</strong> Optimized algorithms for efficiency, implemented power management strategies, and selected appropriate hardware components for balance.</p>
+
+                    <h3>Challenge 3: User Experience</h3>
+                    <p><strong>Problem:</strong> Creating an intuitive interface for users who cannot see visual feedback.</p>
+                    <p><strong>Solution:</strong> Designed tactile controls with audio feedback, implemented voice prompts, and conducted user testing with visually impaired individuals.</p>
+                </div>
+
+                <a href="index.html#projects" class="back-button">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Shubham Jain. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

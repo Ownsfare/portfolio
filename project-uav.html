@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAV for Autonomous Search & Rescue - Shubham Jain</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .project-detail {
+            padding: 100px 0 80px;
+            min-height: 100vh;
+            background-color: var(--light-bg);
+        }
+        [data-theme="dark"] .project-detail {
+            background-color: var(--dark-bg);
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .project-header .project-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .project-header img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .project-section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        [data-theme="dark"] .project-section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+        .project-section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        .project-section h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .project-section p, .project-section li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .project-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .project-section li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .project-section li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .tech-item {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        [data-theme="dark"] .tech-item {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .back-button {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .milestone-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .milestone-timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+        .milestone {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        .milestone:before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--white);
+        }
+        [data-theme="dark"] .milestone:before {
+            border-color: var(--dark-bg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Shubham Codes</div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <div class="project-icon">🚁</div>
+                <h1>UAV for Autonomous Search & Rescue</h1>
+                <img src="https://images.unsplash.com/photo-1473968512647-3f4478c9cf13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="UAV Drone" onerror="this.src='https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=80'">
+            </div>
+
+            <div class="project-content">
+                <a href="index.html#projects" class="back-button">← Back to Projects</a>
+
+                <div class="project-section">
+                    <h2>Objective</h2>
+                    <p>Develop an autonomous Unmanned Aerial Vehicle (UAV) capable of performing search and rescue operations in challenging environments. The system was designed to compete in the AUVSI SUAS Competition (USA) and demonstrate advanced capabilities in autonomous navigation, object detection, and mission execution.</p>
+                    <p>The primary goal was to create a robust, reliable UAV system that could autonomously locate and identify targets in a designated search area, navigate complex terrain, and execute precision tasks while maintaining safety and operational efficiency.</p>
+                </div>
+
+                <div class="project-section">
+                    <h2>Key Milestones</h2>
+                    <div class="milestone-timeline">
+                        <div class="milestone">
+                            <h3>Phase 1: System Architecture & Design</h3>
+                            <p>Designed the overall system architecture, including hardware selection, software framework, and communication protocols. Established team structure and development workflow for the 18-member software subsystem team.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 2: Computer Vision Implementation</h3>
+                            <p>Implemented advanced computer vision algorithms using OpenCV for real-time image processing, object detection, and target recognition. Developed custom algorithms for feature extraction and pattern matching.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 3: Machine Learning Integration</h3>
+                            <p>Integrated machine learning models for enhanced object detection and classification. Trained models on custom datasets to improve accuracy and reduce false positives in target identification.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 4: Autonomous Navigation</h3>
+                            <p>Developed autonomous navigation system with path planning, obstacle avoidance, and GPS integration. Implemented real-time decision-making algorithms for mission execution.</p>
+                        </div>
+                        <div class="milestone">
+                            <h3>Phase 5: Testing & Competition</h3>
+                            <p>Conducted extensive field testing and optimization. Achieved top ranking at AUVSI SUAS Competition (USA) through superior performance in autonomous flight, target detection, and mission completion.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>Product Requirements Document (PRD)</h2>
+                    <h3>Functional Requirements</h3>
+                    <ul>
+                        <li>Autonomous takeoff and landing capabilities</li>
+                        <li>Real-time object detection and classification</li>
+                        <li>GPS-based navigation with waypoint following</li>
+                        <li>Obstacle detection and avoidance</li>
+                        <li>Target identification and tracking</li>
+                        <li>Mission planning and execution</li>
+                        <li>Telemetry data transmission</li>
+                        <li>Emergency landing protocols</li>
+                    </ul>
+
+                    <h3>Non-Functional Requirements</h3>
+                    <ul>
+                        <li>Flight time: Minimum 30 minutes</li>
+                        <li>Operating range: Up to 2 km</li>
+                        <li>Object detection accuracy: >90%</li>
+                        <li>Navigation precision: Within 5 meters</li>
+                        <li>Real-time processing: <100ms latency</li>
+                        <li>Weather resistance: Operate in moderate wind conditions</li>
+                        <li>Safety compliance: Follow AUVSI competition regulations</li>
+                    </ul>
+
+                    <h3>User Stories</h3>
+                    <ul>
+                        <li>As a mission operator, I want the UAV to autonomously navigate to search areas so that I can focus on monitoring and decision-making.</li>
+                        <li>As a search team member, I need accurate target detection so that rescue operations can be initiated quickly.</li>
+                        <li>As a system administrator, I require real-time telemetry so that I can monitor system health and performance.</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Technology Stack</h2>
+                    <div class="tech-stack-grid">
+                        <div class="tech-item">
+                            <strong>OpenCV</strong>
+                            <p>Computer vision library for image processing and object detection</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Python</strong>
+                            <p>Primary programming language for software development</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Machine Learning</strong>
+                            <p>Custom ML models for object classification and recognition</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>ROS (Robot Operating System)</strong>
+                            <p>Framework for robot software development and communication</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>GPS/GNSS</strong>
+                            <p>Global positioning system for navigation and waypoint tracking</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>IMU Sensors</strong>
+                            <p>Inertial measurement units for attitude and motion sensing</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Computer Vision Algorithms</strong>
+                            <p>Custom algorithms for feature detection and tracking</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Flight Controller</strong>
+                            <p>Hardware and software for autonomous flight control</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>System Architecture</h2>
+                    <h3>Hardware Components</h3>
+                    <ul>
+                        <li>Multirotor UAV platform with high payload capacity</li>
+                        <li>High-resolution camera with gimbal stabilization</li>
+                        <li>GPS/GNSS receiver for precise positioning</li>
+                        <li>IMU and barometric sensors for attitude estimation</li>
+                        <li>Onboard computer (Raspberry Pi or similar) for processing</li>
+                        <li>Radio communication system for telemetry</li>
+                    </ul>
+
+                    <h3>Software Architecture</h3>
+                    <ul>
+                        <li><strong>Perception Layer:</strong> Computer vision and sensor fusion for environment understanding</li>
+                        <li><strong>Planning Layer:</strong> Path planning and mission execution algorithms</li>
+                        <li><strong>Control Layer:</strong> Flight control and stabilization systems</li>
+                        <li><strong>Communication Layer:</strong> Telemetry and command interface</li>
+                        <li><strong>Safety Layer:</strong> Emergency protocols and fail-safe mechanisms</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Key Achievements</h2>
+                    <ul>
+                        <li>Achieved top ranking at AUVSI SUAS Competition (USA)</li>
+                        <li>Successfully led an 18-member software subsystem team</li>
+                        <li>Implemented real-time computer vision with <100ms processing latency</li>
+                        <li>Developed robust autonomous navigation system</li>
+                        <li>Created scalable architecture for future enhancements</li>
+                        <li>Demonstrated reliability in competitive environment</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Challenges & Solutions</h2>
+                    <h3>Challenge 1: Real-time Processing</h3>
+                    <p><strong>Problem:</strong> Processing high-resolution images in real-time while maintaining low latency.</p>
+                    <p><strong>Solution:</strong> Implemented optimized image processing pipelines, used multi-threading, and optimized algorithms for efficient computation.</p>
+
+                    <h3>Challenge 2: Environmental Variability</h3>
+                    <p><strong>Problem:</strong> Varying lighting conditions and weather affecting object detection accuracy.</p>
+                    <p><strong>Solution:</strong> Developed adaptive algorithms that adjust to environmental conditions and trained ML models on diverse datasets.</p>
+
+                    <h3>Challenge 3: Team Coordination</h3>
+                    <p><strong>Problem:</strong> Managing a large 18-member team with different expertise areas.</p>
+                    <p><strong>Solution:</strong> Established clear communication protocols, modular architecture, and regular integration testing.</p>
+                </div>
+
+                <a href="index.html#projects" class="back-button">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Shubham Jain. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
