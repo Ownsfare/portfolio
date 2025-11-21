@@ -110,4 +110,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+
+    // 8. Contact Form (Formspree)
+    const contactForm = document.getElementById('contactForm');
+    const contactStatus = document.getElementById('contactStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (contactStatus) {
+                contactStatus.textContent = 'Sending...';
+                contactStatus.classList.remove('error');
+            }
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { Accept: 'application/json' },
+                });
+
+                if (response.ok) {
+                    contactStatus.textContent = 'Message sent. I\'ll get back soon!';
+                    contactForm.reset();
+                } else {
+                    const data = await response.json();
+                    const errorMsg = data.errors?.[0]?.message || 'Something went wrong. Try again?';
+                    contactStatus.textContent = errorMsg;
+                    contactStatus.classList.add('error');
+                }
+            } catch (error) {
+                contactStatus.textContent = 'Unable to send right now. Please email me directly.';
+                contactStatus.classList.add('error');
+            }
+        });
+    }
 });

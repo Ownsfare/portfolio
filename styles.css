@@ -89,7 +89,9 @@ p { font-size: 1.1rem; color: var(--text-secondary); font-weight: 400; }
 
 .text-gradient {
     background: var(--gradient-primary);
+    background-clip: text;
     -webkit-background-clip: text;
+    color: transparent;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
@@ -225,7 +227,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: var(--header-height);
+    padding-top: calc(var(--header-height) + 2rem);
     position: relative;
     overflow: hidden;
 }
@@ -238,25 +240,47 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 }
 
 .hero-badges {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    display: inline-flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 0.4rem 0.6rem;
+    box-shadow: 0 15px 40px -30px rgba(15, 23, 42, 0.8);
 }
 
 .badge-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.2);
-    color: var(--accent-cyan);
-    font-size: 0.85rem;
+    padding: 0.35rem 0.9rem 0.35rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    color: var(--text-primary);
+    font-size: 0.78rem;
     font-weight: 600;
 }
 
-.badge-pill svg { width: 14px; height: 14px; }
+.badge-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+}
+
+.badge-icon svg {
+    width: 14px;
+    height: 14px;
+}
 
 .hero-subtext {
     font-size: 1.25rem;
@@ -276,17 +300,25 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 
 .metric-card { display: flex; flex-direction: column; }
 
+.metric-figure {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.2rem;
+}
+
 .metric-val {
     font-family: 'JetBrains Mono', monospace;
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-primary);
     line-height: 1;
+    display: inline-flex;
 }
 
 .metric-suffix {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: var(--accent-cyan);
 }
 
@@ -341,7 +373,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 /* HERO VISUAL - Profile & Floating Cards */
 .hero-visual {
     position: relative;
-    height: 600px;
+    height: 520px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -349,20 +381,40 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 
 .profile-container {
     position: relative;
-    width: 400px;
-    height: 500px;
+    width: 360px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-90px);
+}
+
+.profile-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 12px;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.6), rgba(139, 92, 246, 0.6));
+    box-shadow: 0 30px 80px -40px rgba(6, 182, 212, 0.6);
+}
+
+.profile-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: radial-gradient(circle at top, rgba(255,255,255,0.15), rgba(15,23,42,0.9));
+    position: relative;
 }
 
 .profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 24px;
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    object-position: center 28%;
+    border-radius: 50%;
     position: relative;
     z-index: 2;
-    transform: scale(1);
     transition: transform 0.5s ease;
 }
 
@@ -371,11 +423,11 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120%;
-    height: 80%;
-    background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
-    opacity: 0.2;
-    filter: blur(60px);
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.6), transparent 70%);
+    opacity: 0.25;
+    filter: blur(80px);
     z-index: 1;
 }
 
@@ -391,8 +443,8 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
     animation: float 6s infinite ease-in-out;
 }
 
-.card-1 { top: 15%; right: -10%; animation-delay: 0s; }
-.card-2 { bottom: 20%; left: -10%; animation-delay: 2s; }
+.card-1 { top: 5%; right: -45%; animation-delay: 0s; }
+.card-2 { bottom: 0; left: -45%; animation-delay: 2s; }
 
 .card-icon {
     width: 40px; 
@@ -410,7 +462,11 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 .card-text .value { font-weight: 700; font-size: 1rem; color: var(--text-primary); }
 
 /* SECTIONS GENERAL */
-section { padding: 8rem 0; }
+section { padding: 7rem 0; }
+
+.section-projects {
+    padding-top: 4rem;
+}
 
 .section-header { margin-bottom: 4rem; }
 .section-tag {
@@ -653,6 +709,21 @@ section { padding: 8rem 0; }
     outline: none;
     border-color: var(--accent-cyan);
 }
+
+.form-status {
+    min-height: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-teal);
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.form-status.error {
+    color: #fb7185;
+}
+
 .full-width { width: 100%; justify-content: center; }
 
 /* FOOTER */
@@ -685,6 +756,7 @@ footer {
 
 .delay-100 { transition-delay: 0.1s; }
 .delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -693,4 +765,5 @@ footer {
     h1 { font-size: 2.5rem; }
     .hero-metrics { flex-direction: column; gap: 1.5rem; }
     .nav-menu { display: none; } /* Mobile menu hidden for simplicity in this version */
+    .profile-container { transform: translateY(0); }
 }
