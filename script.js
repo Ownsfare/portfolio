@@ -1,195 +1,113 @@
-// Dark Mode Toggle Functionality
-const darkModeToggle = document.getElementById('darkModeToggle');
-const htmlElement = document.documentElement;
-
-// Function to set theme
-function setTheme(theme) {
-    htmlElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-}
-
-// Function to get theme from localStorage or default to light
-function getTheme() {
+// FinTech Noir Interactions
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Dark Mode Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // Check local storage
     const savedTheme = localStorage.getItem('theme');
-    return savedTheme || 'light';
-}
-
-// Initialize theme on page load
-const currentTheme = getTheme();
-setTheme(currentTheme);
-
-// Toggle dark mode on button click
-if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', function() {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-        
-        // Add click animation
-        this.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 150);
-    });
-}
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Contact Button Click Event
-const contactBtn = document.getElementById('contactBtn');
-if (contactBtn) {
-    contactBtn.addEventListener('click', function() {
-        // Scroll to contact section
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-        
-        // Add visual feedback
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 150);
-    });
-}
-
-// Project Card Button Click Events - Navigation handled by onclick in HTML
-const projectButtons = document.querySelectorAll('.project-btn');
-projectButtons.forEach((button) => {
-    button.addEventListener('click', function() {
-        // Add click animation
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 150);
-    });
-});
-
-// Navbar scroll effect
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+    if (savedTheme) {
+        html.setAttribute('data-theme', savedTheme);
     }
-    
-    lastScroll = currentScroll;
-});
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    // 2. Smooth Scroll & Active Link
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-}, observerOptions);
 
-// Observe all sections (but not project detail pages which should be visible immediately)
-document.querySelectorAll('section:not(.project-detail)').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
-
-// Ensure project detail sections are visible
-document.querySelectorAll('section.project-detail').forEach(section => {
-    section.style.opacity = '1';
-    section.style.transform = 'translateY(0)';
-});
-
-// Add active state to navigation links on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-menu a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Set last updated date
-const lastUpdatedElement = document.getElementById('lastUpdated');
-if (lastUpdatedElement) {
-    const lastUpdated = new Date().toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-    });
-    lastUpdatedElement.textContent = lastUpdated;
-}
-
-// Animate skill progress bars on scroll
-const animateProgressBars = () => {
-    const skillBars = document.querySelectorAll('.skill-progress');
+    // 3. Intersection Observer for Scroll Reveals
     const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px'
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
     };
 
-    const progressObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const progressBar = entry.target;
-                const width = progressBar.style.width;
-                progressBar.style.width = '0%';
-                setTimeout(() => {
-                    progressBar.style.width = width;
-                }, 100);
-                progressObserver.unobserve(progressBar);
+                entry.target.classList.add('active');
+                
+                // Trigger counter if it's a metric
+                if (entry.target.querySelector('.counter')) {
+                    startCounters(entry.target);
+                }
+                
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    skillBars.forEach(bar => progressObserver.observe(bar));
-};
+    document.querySelectorAll('.reveal-up, .hero-metrics').forEach(el => observer.observe(el));
 
-// Initialize progress bar animations
-if (document.querySelector('.skill-progress')) {
-    animateProgressBars();
-}
+    // 4. Staggered Hero Animation (Simulating Framer Motion)
+    const heroElements = document.querySelectorAll('.reveal-stagger');
+    heroElements.forEach((el, index) => {
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+        }, 200 * (index + 1));
+    });
 
-// Console welcome message
-console.log('%c👋 Welcome to Shubham Codes Portfolio!', 'color: #6366f1; font-size: 20px; font-weight: bold;');
-console.log('%cBuilt with HTML, CSS, and JavaScript', 'color: #64748b; font-size: 14px;');
+    // 5. Number Counter Animation
+    function startCounters(parent) {
+        const counters = parent.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            
+            let current = 0;
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.innerText = Math.ceil(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+    }
 
+    // 6. Parallax Mouse Effect for Background
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        const light1 = document.getElementById('light1');
+        const light2 = document.getElementById('light2');
+        
+        if(light1 && light2) {
+            light1.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+            light2.style.transform = `translate(${-x * 30}px, ${-y * 30}px)`;
+        }
+    });
+
+    // 7. Lucide Icons (Fallback if script tag fails)
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+});

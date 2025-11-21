@@ -3,181 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Jain - Portfolio</title>
+    <title>Shubham Jain - Architecting Global Trade Infrastructure</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Inter for UI, Playfair Display for Serif headings, JetBrains Mono for Data -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (Simulated via CDN for vanilla JS) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+    <!-- Ambient Background Effects -->
+    <div class="ambient-light" id="light1"></div>
+    <div class="ambient-light" id="light2"></div>
+    <div class="noise-overlay"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">Shubham Codes</div>
+        <div class="container nav-container">
+            <div class="nav-brand">Shubham Jain<span class="accent-dot">.</span></div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">Vision</a></li>
+                <li><a href="#focus">Product</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#projects">Case Studies</a></li>
+                <li><a href="#publications">Insights</a></li>
             </ul>
-            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                <span class="sun-icon">☀️</span>
-                <span class="moon-icon">🌙</span>
-            </button>
+            <div class="nav-actions">
+                <button id="themeToggle" class="btn-icon-only" aria-label="Toggle Theme">
+                    <i data-lucide="sun" class="icon-sun"></i>
+                    <i data-lucide="moon" class="icon-moon"></i>
+                </button>
+                <a href="#contact" class="btn-nav">Connect</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
+        <div class="container hero-grid">
             <div class="hero-content">
-                <div class="hero-image">
-                    <div class="profile-img-wrapper">
-                        <img src="083A5786.JPG" alt="Shubham Jain - Co-Founder & CTO" class="profile-img">
+                <div class="hero-badges reveal-stagger">
+                    <span class="badge-pill"><i data-lucide="rocket"></i> IIT Bombay Alumnus</span>
+                    <span class="badge-pill"><i data-lucide="cpu"></i> GenAI Architect</span>
+                </div>
+                <h1 class="reveal-stagger">Building the <span class="text-gradient">Financial Infrastructure</span> for Global Trade.</h1>
+                <p class="hero-subtext reveal-stagger">Co-Founder & CTO. I bridge the gap between Deep Tech architecture and Venture Capital metrics, creating scalable ecosystems for the next billion users.</p>
+                
+                <div class="hero-metrics reveal-stagger">
+                    <div class="metric-card">
+                        <span class="metric-val counter" data-target="400">0</span><span class="metric-suffix">k+</span>
+                        <span class="metric-label">Funding Raised ($)</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-val counter" data-target="20">0</span><span class="metric-suffix">+</span>
+                        <span class="metric-label">Enterprise Clients</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-val counter" data-target="450">0</span><span class="metric-suffix">+</span>
+                        <span class="metric-label">MSMEs Onboarded</span>
                     </div>
                 </div>
-                <div class="hero-text">
-                    <div class="hero-badges">
-                        <span class="badge">🚀 IIT Bombay</span>
-                        <span class="badge">💰 $400k+ Raised</span>
-                        <span class="badge">👥 20+ Team Lead</span>
-                    </div>
-                    <h1>Hi, I'm <span class="highlight">Shubham Jain</span></h1>
-                    <p class="hero-subtitle">Co-Founder & CTO | IIT Bombay Graduate | FinTech Entrepreneur</p>
-                    <p class="hero-description">5+ years of entrepreneurial experience scaling FinTech and SaaS ventures. Expertise in full product development cycle, securing $400k in funding, and leading 20+ member teams. Passionate about leveraging generative AI for business process automation.</p>
-                    <div class="hero-metrics">
-                        <div class="metric-item">
-                            <span class="metric-value">5+</span>
-                            <span class="metric-label">Years Experience</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">$400k</span>
-                            <span class="metric-label">Funding Raised</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">20+</span>
-                            <span class="metric-label">Team Members</span>
-                        </div>
-                    </div>
-                    <div class="hero-cta">
-                        <button id="contactBtn" class="btn-primary" aria-label="Get in touch with Shubham Jain">Get In Touch</button>
-                        <a href="Shubham Jain Resume 2 pager.pdf" download class="btn-secondary" aria-label="Download Shubham Jain's resume">📄 Download Resume</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-cards">
-                <div class="about-card">
-                    <div class="about-icon">🎯</div>
-                    <h3>Mission</h3>
-                    <p>IIT Bombay graduate with 5+ years of entrepreneurial experience scaling FinTech and SaaS ventures. I specialize in the full product development cycle, having successfully secured $400k in funding and led 20+ member teams to deliver innovative solutions.</p>
-                    <div class="stat-chip">$400k Funding</div>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">🚀</div>
-                    <h3>Leadership</h3>
-                    <p>Currently serving as Co-Founder & CTO at NiryatSetu, I've architected and directed the full product lifecycle of integrated ecosystems encompassing logistics, finance, and insurance services.</p>
-                    <div class="stat-chip">20+ Team Members</div>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">💡</div>
-                    <h3>Impact</h3>
-                    <p>My expertise spans strategic leadership, full-stack development (MERN Stack), GenAI integration, and building scalable SaaS platforms that solve real-world problems for MSMEs.</p>
-                    <div class="stat-chip">5+ Years Experience</div>
+                <div class="hero-cta reveal-stagger">
+                    <a href="#contact" class="btn-primary">Lets Build Future <i data-lucide="arrow-right" class="btn-icon"></i></a>
+                    <a href="Shubham Jain Resume 2 pager.pdf" download class="btn-ghost">Download Profile <i data-lucide="download" class="btn-icon"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="core-stack">
-                <h3 class="subsection-title">Core Technology Stack</h3>
-                <div class="stack-tags">
-                    <span class="stack-tag">MERN Stack</span>
-                    <span class="stack-tag">Python</span>
-                    <span class="stack-tag">JavaScript</span>
-                    <span class="stack-tag">React</span>
-                    <span class="stack-tag">Node.js</span>
-                    <span class="stack-tag">AWS</span>
-                    <span class="stack-tag">GenAI</span>
-                    <span class="stack-tag">TypeScript</span>
-                </div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">💻</div>
-                    <h3>Product & Technology</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Full Product Lifecycle</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">SaaS & PaaS Development</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">FinTech Solutions</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">GenAI Integration</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+            
+            <!-- Hero Visual with Profile Image -->
+            <div class="hero-visual reveal-fade">
+                <div class="profile-container">
+                    <div class="profile-glow"></div>
+                    <img src="083A5786.JPG" alt="Shubham Jain" class="profile-image">
+                    
+                    <!-- Floating Elements Overlay -->
+                    <div class="glass-card float-card card-1">
+                        <div class="card-icon"><i data-lucide="code-2"></i></div>
+                        <div class="card-text">
+                            <span class="label">System Architecture</span>
+                            <span class="value">Scalable & Secure</span>
                         </div>
                     </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🎯</div>
-                    <h3>Strategic Leadership</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Business Strategy</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 93%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Investor Relations</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Go-to-Market Strategy</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 91%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Team Leadership</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 94%"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3>Operations & Execution</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Project Management</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Process Automation</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 89%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Financial Management</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 87%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Data Analytics & BI</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                    <div class="glass-card float-card card-2">
+                        <div class="card-icon"><i data-lucide="trending-up"></i></div>
+                        <div class="card-text">
+                            <span class="label">Growth</span>
+                            <span class="value">+50k ARR</span>
                         </div>
                     </div>
                 </div>
@@ -185,189 +97,236 @@
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
+    <!-- Current Focus (Magnum Opus) -->
+    <section id="focus" class="section-focus">
         <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-timeline">
-                <div class="timeline-item">
+            <div class="section-header reveal-up">
+                <span class="section-tag">The Magnum Opus</span>
+                <h2>Redefining Cross-Border Trade</h2>
+            </div>
+            <div class="focus-card glass-panel reveal-up">
+                <div class="focus-content">
+                    <h3>NiryatSetu <span class="status-indicator">Live</span></h3>
+                    <p class="focus-desc">A vertical SaaS platform automating the Order-to-Cash cycle for exporters. Integrating Logistics, Finance, and Insurance into a single "Super App" powered by GenAI agents.</p>
+                    <div class="tech-stack-row">
+                        <span class="tech-pill">GenAI Agents</span>
+                        <span class="tech-pill">OCR Automation</span>
+                        <span class="tech-pill">MERN Stack</span>
+                    </div>
+                    <div class="focus-stats">
+                        <div class="stat">
+                            <span class="stat-val">85%</span>
+                            <span class="stat-label">Processing Time Reduced</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-val">70%</span>
+                            <span class="stat-label">Manual Ops Eliminated</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="focus-visual">
+                    <!-- Placeholder for Product UI mockup/screenshot -->
+                    <div class="ui-mockup">
+                        <div class="ui-header">
+                            <span class="ui-title">Trade_Dashboard_v2.tsx</span>
+                        </div>
+                        <div class="ui-body">
+                            <div class="chart-placeholder"></div>
+                            <div class="row-placeholder"></div>
+                            <div class="row-placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Journey (Timeline) -->
+    <section id="journey" class="section-journey">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">The Trajectory</span>
+                <h2>From Engineering to Venture Building</h2>
+            </div>
+            <div class="timeline">
+                <!-- Item 1 -->
+                <div class="timeline-item reveal-up">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="education-badge">🏆 Top Performer</div>
-                        <h3>Bachelor of Technology (B.Tech.) - Civil Engineering</h3>
-                        <p class="institution">Indian Institute of Technology (IIT), Bombay</p>
-                        <p class="location">📍 Mumbai, India</p>
-                        <div class="achievement-list">
-                            <span class="achievement-badge">CGPA: 9.50</span>
-                            <span class="achievement-badge">Dept Rank: 3rd</span>
-                            <span class="achievement-badge">Institute Rank: 27th</span>
-                        </div>
-                        <p class="details">Minor in Industrial Engineering and Operations Research (IEOR)</p>
-                        <div class="awards-list">
-                            <p class="awards">🏅 Institute Academic Prize for Excellence</p>
-                            <p class="awards">🏅 Institute Organisational Special Mention</p>
-                        </div>
+                    <div class="timeline-content glass-panel">
+                        <div class="timeline-date">Jan 2024 - Present</div>
+                        <h3>Co-Founder & CTO @ NiryatSetu</h3>
+                        <p>Building the operating system for Indian exports. Secured $100k angel funding. Architected GenAI-powered accounts payable suite.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <!-- Item 2 -->
+                <div class="timeline-item reveal-up">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>High School</h3>
-                        <p class="institution">Delhi Public School Ghaziabad</p>
-                        <p class="location">📍 Ghaziabad, India</p>
-                        <div class="achievement-list">
-                            <span class="achievement-badge">Class XII: 93.2%</span>
-                            <span class="achievement-badge">Class X: GPA 9.80</span>
-                        </div>
+                    <div class="timeline-content glass-panel">
+                        <div class="timeline-date">Apr 2022 - Jan 2024</div>
+                        <h3>Co-Founder & CEO @ TradeReboot</h3>
+                        <p>Scaled from $0 to $50k ARR. Onboarded 450+ MSMEs and 40+ banking partners including HSBC & Standard Chartered.</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-panel">
+                        <div class="timeline-date">Oct 2020 - May 2022</div>
+                        <h3>Manager @ Tata Projects</h3>
+                        <p>Managed high-value national infrastructure projects (DFCCIL). Automated reporting workflows reducing turnaround time by 90%.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Selected Case Studies -->
+    <section id="projects" class="section-projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-header reveal-up">
+                <span class="section-tag">Engineering Deep Dives</span>
+                <h2>Selected Case Studies</h2>
+            </div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1473968512647-3f4478c9cf13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="UAV for Autonomous Search & Rescue project" class="project-image" onerror="this.src='https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=80'">
-                        <div class="project-overlay"></div>
+                <!-- Card 1: BluSmart -->
+                <a href="project-blusmart.html" class="project-card-modern glass-panel reveal-up">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80" alt="BluSmart">
+                        <div class="overlay">
+                            <span class="view-btn">View Case Study <i data-lucide="arrow-up-right"></i></span>
+                        </div>
                     </div>
-                    <div class="project-icon">🚁</div>
-                    <div class="project-meta">
-                        <span class="meta-item">👥 18 Members</span>
-                        <span class="meta-item">🏆 Top Ranking</span>
-                        <span class="meta-item">🎓 IIT Bombay</span>
+                    <div class="card-info">
+                        <div class="card-tags">
+                            <span>FinTech</span>
+                            <span>SaaS</span>
+                        </div>
+                        <h3>BluSmart Insolvency System</h3>
+                        <p>Enterprise multi-tenant platform for insolvency resolution.</p>
                     </div>
-                    <h3>UAV for Autonomous Search & Rescue</h3>
-                    <p>Led an 18-member software subsystem team at IIT Bombay to develop an autonomous UAV. Achieved top ranking at the AUVSI SUAS Competition (USA) by implementing advanced computer vision (OpenCV) and machine learning algorithms for object detection and navigation.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Computer Vision</span>
+                </a>
+
+                <!-- Card 2: UAV -->
+                <a href="project-uav.html" class="project-card-modern glass-panel reveal-up delay-100">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1473968512647-3f4478c9cf13?w=800&auto=format&fit=crop&q=80" alt="UAV">
+                        <div class="overlay">
+                            <span class="view-btn">View Case Study <i data-lucide="arrow-up-right"></i></span>
+                        </div>
                     </div>
-                    <div class="project-actions">
-                        <button class="btn-secondary project-btn" onclick="window.location.href='project-uav.html'" aria-label="View detailed information about UAV project">View Details</button>
-                        <a href="#" class="project-link" aria-label="View UAV project on GitHub" title="GitHub Repository">🔗</a>
+                    <div class="card-info">
+                        <div class="card-tags">
+                            <span>Robotics</span>
+                            <span>CV</span>
+                        </div>
+                        <h3>Autonomous Search & Rescue</h3>
+                        <p>Award-winning UAV system with real-time object detection.</p>
                     </div>
+                </a>
+
+                <!-- Card 3: Spectacles -->
+                <a href="project-spectacles.html" class="project-card-modern glass-panel reveal-up delay-200">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80" alt="Spectacles">
+                        <div class="overlay">
+                            <span class="view-btn">View Case Study <i data-lucide="arrow-up-right"></i></span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tags">
+                            <span>IoT</span>
+                            <span>Accessibility</span>
+                        </div>
+                        <h3>Smart Vision Spectacles</h3>
+                        <p>Assistive OCR technology for the visually impaired.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thought Leadership -->
+    <section id="publications" class="section-pubs">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Publications</span>
+                <h2>Thought Leadership</h2>
+            </div>
+            <div class="pubs-list">
+                <div class="pub-item glass-panel reveal-up">
+                    <div class="pub-icon"><i data-lucide="book-open"></i></div>
+                    <div class="pub-content">
+                        <h4>Global-scale water security and desertification management</h4>
+                        <p>Environmental Science and Pollution Research (2024). 100+ Citations.</p>
+                    </div>
+                    <a href="#" class="pub-link"><i data-lucide="external-link"></i></a>
                 </div>
-                <div class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80" alt="Smart Spectacles for Visually Impaired project" class="project-image">
-                        <div class="project-overlay"></div>
+                <div class="pub-item glass-panel reveal-up">
+                    <div class="pub-icon"><i data-lucide="book-open"></i></div>
+                    <div class="pub-content">
+                        <h4>Demystifying artificial intelligence in agriculture</h4>
+                        <p>Current Directions in Water Scarcity Research (2022).</p>
                     </div>
-                    <div class="project-icon">👓</div>
-                    <div class="project-meta">
-                        <span class="meta-item">👤 Solo Project</span>
-                        <span class="meta-item">♿ Accessibility</span>
-                        <span class="meta-item">🔬 Research</span>
-                    </div>
-                    <h3>Smart Spectacles for Visually Impaired</h3>
-                    <p>Conceived and developed a portable assistive device using Raspberry Pi, OCR (Tesseract), and text-to-speech technology to enable visually challenged individuals to read printed text. This innovative solution bridges accessibility gaps through technology.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Raspberry Pi</span>
-                        <span class="tech-tag">OCR (Tesseract)</span>
-                        <span class="tech-tag">Text-to-Speech</span>
-                    </div>
-                    <div class="project-actions">
-                        <button class="btn-secondary project-btn" onclick="window.location.href='project-spectacles.html'" aria-label="View detailed information about Smart Spectacles project">View Details</button>
-                        <a href="#" class="project-link" aria-label="View Smart Spectacles project on GitHub" title="GitHub Repository">🔗</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80" alt="AI-Based Food Image Nutrition Predictor project" class="project-image">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-icon">🍎</div>
-                    <div class="project-meta">
-                        <span class="meta-item">👥 4 Members</span>
-                        <span class="meta-item">🤖 AI/ML</span>
-                        <span class="meta-item">📱 Mobile App</span>
-                    </div>
-                    <h3>AI-Based Food Image Nutrition Predictor</h3>
-                    <p>Led a team of 4 to develop an AI-powered tool that predicts nutritional information from food images. Leveraged TensorFlow and a pre-trained Inception V3 model for image classification, making nutrition tracking accessible through simple photo capture.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">Inception V3</span>
-                        <span class="tech-tag">Image Classification</span>
-                    </div>
-                    <div class="project-actions">
-                        <button class="btn-secondary project-btn" onclick="window.location.href='project-nutrition.html'" aria-label="View detailed information about Food Nutrition Predictor project">View Details</button>
-                        <a href="#" class="project-link" aria-label="View Food Nutrition Predictor project on GitHub" title="GitHub Repository">🔗</a>
-                    </div>
+                    <a href="#" class="pub-link"><i data-lucide="external-link"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-wrapper">
-                <div class="contact-intro">
-                    <h3>Let's Work Together</h3>
-                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Whether you're looking for a technical co-founder, need consulting on product strategy, or want to explore collaboration opportunities, I'd love to hear from you.</p>
-                    <div class="contact-cta">
-                        <a href="mailto:shubhamjain752@gmail.com" class="btn-primary" aria-label="Send email to Shubham Jain">📧 Send Email</a>
-                        <a href="Shubham Jain Resume 2 pager.pdf" download class="btn-secondary" aria-label="Download resume">📄 Download Resume</a>
+    <!-- Contact -->
+    <section id="contact" class="section-contact">
+        <div class="container contact-grid">
+            <div class="contact-text reveal-up">
+                <h2>Ready to build the next unicorn?</h2>
+                <p>I'm currently open to discussing technical co-founder roles, architectural consulting, or high-impact engineering leadership opportunities.</p>
+                <div class="contact-methods">
+                    <a href="mailto:shubhamjain752@gmail.com" class="method-item">
+                        <i data-lucide="mail"></i> shubhamjain752@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/shubham-jain-6975811b6/" target="_blank" class="method-item">
+                        <i data-lucide="linkedin"></i> LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form-wrapper glass-panel reveal-up">
+                <!-- Simple mock form for aesthetics -->
+                <form class="contact-form" onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="John Doe">
                     </div>
-                </div>
-                <div class="contact-cards">
-                    <a href="mailto:shubhamjain752@gmail.com" class="contact-card" aria-label="Email Shubham Jain">
-                        <div class="contact-card-icon">📧</div>
-                        <h4>Email</h4>
-                        <p>shubhamjain752@gmail.com</p>
-                        <span class="contact-card-link">Send Message →</span>
-                    </a>
-                    <a href="tel:+918291474760" class="contact-card" aria-label="Call Shubham Jain">
-                        <div class="contact-card-icon">📞</div>
-                        <h4>Phone</h4>
-                        <p>+91-8291474760</p>
-                        <span class="contact-card-link">Call Now →</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/shubham-jain-6975811b6/" class="contact-card" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
-                        <div class="contact-card-icon">💼</div>
-                        <h4>LinkedIn</h4>
-                        <p>Connect with me</p>
-                        <span class="contact-card-link">Visit Profile →</span>
-                    </a>
-                </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="john@venture.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="Let's disrupt..."></textarea>
+                    </div>
+                    <button class="btn-primary full-width">Send Message <i data-lucide="send"></i></button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Shubham Codes</h3>
-                    <p>Building innovative solutions for the future</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/shubham-jain-6975811b6/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile">
-                        <span>💼</span>
-                    </a>
-                    <a href="https://github.com/Ownsfare" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile">
-                        <span>🐙</span>
-                    </a>
-                    <a href="mailto:shubhamjain752@gmail.com" class="social-link" aria-label="Email">
-                        <span>📧</span>
-                    </a>
-                </div>
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <span class="brand">Shubham Jain<span class="accent-dot">.</span></span>
+                <span class="copyright">© 2025. FinTech Noir Edition.</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Shubham Jain. All rights reserved.</p>
-                <p class="footer-updated">Last updated: <span id="lastUpdated"></span></p>
+            <div class="footer-right">
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
-
